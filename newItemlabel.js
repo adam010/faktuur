@@ -1,4 +1,3 @@
-// JavaScript Document
 $(function () {
 
 
@@ -9,11 +8,38 @@ $(function () {
          this.objTarget='';
       
      };
-    Versiondata=function(versionsdata){
-        this.itemsdata= versionsdata;
+	 this.itemsdata= versionsdata;
         this.vItem
         this.itmid
-        this.findItem=function(articleNr,itemid){
+    var versionList=versionsdata;
+	 var findArticle=function(artNr){
+		$.each(this.itemsdata, function (i, obj){            
+			 if(i == articleNr) {       
+				itemfound= function(itmID){
+					$.each(obj,function(i,v){
+					  if(v['ID']==itmID){
+						 return obj[i]
+					  }
+					})								
+				}
+			  return itemfound 	
+			 }
+		})
+		 
+	 }
+	 var findItem= new findArticle(articleNr)
+		 versionObj=findItem(itemID)
+
+		 
+		 
+		 
+    Versiondata=function(versionsdata){
+        
+		
+		
+		
+		///////////////////
+        /*this.findItem=function(articleNr,itemid){
                             this.itmid=itemid;
                             $.each(this.itemsdata, function (i, obj){            
                                 if(i == articleNr) {       
@@ -27,7 +53,7 @@ $(function () {
                                      })                                       
                                  }                                                
                             });    
-                        }      
+                        }      */
         /*this.findVersion= function(id){
                 $.each(item, function(obj){ 
                     if(obj['ID']== id){
